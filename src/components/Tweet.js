@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { dbService, storageService } from "fbase";
 
-const Nweet = ({ nweetObj, isOwner }) => {
+const Tweet = ({ tweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
-  const [newNweet, setNewNweet] = useState(nweetObj.text);
+  const [newTweet, setNewTweet] = useState(tweetObj.text);
 
   const onDeleteClick = async () => {
     const ok = window.confirm("삭제하시겠습니까?");
     if (ok) {
-      await dbService.doc(`nweet/${nweetObj.id}`).delete();
-      if(nweetObj.attachmentUrl !== ""){
-        await storageService.refFromURL(nweetObj.attachmentUrl).delete();
+      await dbService.doc(`tweet/${tweetObj.id}`).delete();
+      if(tweetObj.attachmentUrl !== ""){
+        await storageService.refFromURL(tweetObj.attachmentUrl).delete();
       }
     }
   };
@@ -19,15 +19,15 @@ const Nweet = ({ nweetObj, isOwner }) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    await dbService.doc(`nweet/${nweetObj.id}`).update({
-      text: newNweet,
+    await dbService.doc(`tweet/${tweetObj.id}`).update({
+      text: newTweet,
     });
     setEditing(false);
   };
 
   const onChange = (event) => {
     const {target: { value } } = event;
-    setNewNweet(value);
+    setNewTweet(value);
   };
   
   return (
@@ -39,8 +39,8 @@ const Nweet = ({ nweetObj, isOwner }) => {
             <form onSubmit={onSubmit}>
               <input
                 type="text"
-                placeholder="Edit your nweet"
-                value={newNweet}
+                placeholder="수정할 텍스트"
+                value={newTweet}
                 required
                 onChange={onChange}
               />
@@ -52,8 +52,8 @@ const Nweet = ({ nweetObj, isOwner }) => {
         </>
       ) : (
         <>
-          <h4>{nweetObj.text}</h4>
-          {nweetObj.attachmentUrl && <img alt="" src={nweetObj.attachmentUrl} width="50px" height="50px"/> }
+          <h4>{tweetObj.text}</h4>
+          {tweetObj.attachmentUrl && <img alt="" src={tweetObj.attachmentUrl} width="50px" height="50px"/> }
           {isOwner && (
             <>
               <button onClick={onDeleteClick}>삭제하기</button>
@@ -66,4 +66,4 @@ const Nweet = ({ nweetObj, isOwner }) => {
   );
 };
 
-export default Nweet;
+export default Tweet;

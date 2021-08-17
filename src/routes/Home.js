@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { dbService } from "fbase";
-import Nweet from 'components/Nweet';
-import NweetFactory from "components/NweetFactory";
+import Tweet from 'components/Tweet';
+import TweetFactory from "components/TweetFactory";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -23,25 +23,25 @@ const Container = styled.div`
 `;
 
 const Home = ({ userObj }) => {
-  const [nweets, setNweets] = useState([]);
+  const [tweets, setTweets] = useState([]);
   useEffect(() => {
-    dbService.collection("nweet").orderBy("createAt","desc").onSnapshot((snapshot) => {
-    const nweetArray = snapshot.docs.map((doc) => {
+    dbService.collection("tweet").orderBy("createAt","desc").onSnapshot((snapshot) => {
+    const TweetArray = snapshot.docs.map((doc) => {
       return { id: doc.id, ...doc.data() };
     });
-      setNweets(nweetArray);
+      setTweets(TweetArray);
     });
   }, []);
 
   return (
     <Body>
-      <NweetFactory userObj={userObj}/>
+      <TweetFactory userObj={userObj}/>
       <Container>
-          {nweets.map((nweet) => (
-            <Nweet 
-            key={nweet.id} 
-            nweetObj={nweet} 
-            isOwner={nweet.creatorId === userObj.uid}/>
+          {tweets.map((tweet) => (
+            <Tweet 
+            key={tweet.id} 
+            tweetObj={tweet} 
+            isOwner={tweet.creatorId === userObj.uid}/>
           ))}
       </Container>
       <Link to="/">돌아가기</Link>

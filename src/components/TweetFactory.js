@@ -7,8 +7,8 @@ const Chat = styled.input`
   width: 500px;
 `;
 
-const NweetFactory = ({ userObj }) => {
-  const [nweet, setNweet] = useState("");
+const TweetFactory = ({ userObj }) => {
+  const [tweet, setTweet] = useState("");
   const [attachment, setAttachment] = useState("");
 
   const onSubmit = async (event) => {
@@ -19,20 +19,20 @@ const NweetFactory = ({ userObj }) => {
       const response = await attachmentRef.putString(attachment, "data_url");
       attachmentUrl = await response.ref.getDownloadURL();
     }
-  const nweetObj = {
-    text: nweet,
+  const tweetObj = {
+    text: tweet,
     createAt: Date.now(),
     creatorId: userObj.uid,
     attachmentUrl
   }
-  await dbService.collection("nweet").add(nweetObj);
-  setNweet("");
+  await dbService.collection("tweet").add(tweetObj);
+  setTweet("");
   setAttachment("");
   };
 
   const onChange = (event) => {
     const {target: { value } } = event;
-    setNweet(value);
+    setTweet(value);
   };
 
   const onFileChange = (event) => {
@@ -53,7 +53,7 @@ const NweetFactory = ({ userObj }) => {
   return (
     <form onSubmit={onSubmit}>
       <Chat
-        value={nweet}
+        value={tweet}
         onChange={onChange}
         type="text"
         placeholder="채팅 입력"
@@ -71,4 +71,4 @@ const NweetFactory = ({ userObj }) => {
     </form>
   )
 }
-export default NweetFactory;
+export default TweetFactory;
