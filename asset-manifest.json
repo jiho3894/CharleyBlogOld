@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/CharleyBlog/static/js/main.d3037361.chunk.js",
+    "main.js.map": "/CharleyBlog/static/js/main.d3037361.chunk.js.map",
+    "runtime-main.js": "/CharleyBlog/static/js/runtime-main.81490732.js",
+    "runtime-main.js.map": "/CharleyBlog/static/js/runtime-main.81490732.js.map",
+    "static/js/2.72305636.chunk.js": "/CharleyBlog/static/js/2.72305636.chunk.js",
+    "static/js/2.72305636.chunk.js.map": "/CharleyBlog/static/js/2.72305636.chunk.js.map",
+    "index.html": "/CharleyBlog/index.html",
+    "static/js/2.72305636.chunk.js.LICENSE.txt": "/CharleyBlog/static/js/2.72305636.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.81490732.js",
+    "static/js/2.72305636.chunk.js",
+    "static/js/main.d3037361.chunk.js"
+  ]
+}
