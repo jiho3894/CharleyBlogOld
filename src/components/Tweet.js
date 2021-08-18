@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 import { dbService, storageService } from "fbase";
+import styled from "styled-components";
+import { Button, ButtonToolbar } from 'react-bootstrap';
+
+const Body = styled.div`
+  display: flex;
+`;
 
 const Tweet = ({ tweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
@@ -35,7 +41,7 @@ const Tweet = ({ tweetObj, isOwner }) => {
       {editing ? (
         <>
           {isOwner && (
-          <>
+          <Body>
             <form onSubmit={onSubmit}>
               <input
                 type="text"
@@ -44,23 +50,25 @@ const Tweet = ({ tweetObj, isOwner }) => {
                 required
                 onChange={onChange}
               />
-              <input type="submit" value="올리기" />
+              <input type="submit" value="⭕" />
             </form>
             <button onClick={toggleEditing}>취소</button>
-          </>
+          </Body>
           )}
         </>
       ) : (
-        <>
-          <h4>{tweetObj.text}</h4>
-          {tweetObj.attachmentUrl && <img alt="" src={tweetObj.attachmentUrl} width="50px" height="50px"/> }
-          {isOwner && (
-            <>
-              <button onClick={onDeleteClick}>삭제하기</button>
-              <button onClick={toggleEditing}>수정하기</button>
-            </>
-          )}
-        </>
+          <Body>
+            <h4>{tweetObj.text}</h4>
+            {tweetObj.attachmentUrl && <img alt="" src={tweetObj.attachmentUrl} width="50px" height="50px"/> }
+            {isOwner && (
+              <>
+                <ButtonToolbar>
+                  <Button onClick={onDeleteClick} variant="danger" size="sm">삭제하기</Button>
+                  <Button onClick={toggleEditing} variant="info" size="sm">수정하기</Button>
+                </ButtonToolbar>
+              </>
+            )}
+          </Body>
       )}
     </div>
   );

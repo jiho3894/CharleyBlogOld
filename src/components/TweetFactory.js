@@ -4,7 +4,11 @@ import styled from 'styled-components';
 import {v4 as uuidv4 } from 'uuid';
 
 const Chat = styled.input`
-  width: 500px;
+  width: 200px;
+`;
+
+const File = styled.input`
+  width: 100px;
 `;
 
 const TweetFactory = ({ userObj }) => {
@@ -60,7 +64,7 @@ const TweetFactory = ({ userObj }) => {
         maxLength={100}
         required
       />
-      <input type="file" accept="image/*" onChange={onFileChange}/>
+      <File type="file" accept="image/*" onChange={onFileChange}/>
       <input type="submit" value="올리기" />
       {attachment && (
         <div>
