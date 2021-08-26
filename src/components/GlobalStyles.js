@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
         width: 100%;
         height: 100vh;
         font-size: 20px;
-        background-color: yellow;
+        background-color: white;
         font-family: 'Noto Sans KR', sans-serif;
     }
 `;
