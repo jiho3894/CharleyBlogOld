@@ -16,12 +16,18 @@ const Body = styled.body`
 
 const Container = styled.div`
   width: 100%;
-  height: 60vh;
+  height: 100%;
   display: grid;
   grid-template-rows: repeat(2,1fr);
   grid-template-columns: repeat(2,1fr);
 `;
 
+const Select = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Under = styled.div`
   position: absolute;
@@ -65,11 +71,28 @@ const Home = ({ userObj }) => {
     <Body>
       <Link to="/">돌아가기</Link>
       <Container>
-      <img src={process.env.PUBLIC_URL + '/images/img1.png'} alt="d"/>
-      <img src="/charleyBlog/images/img1.png" alt="" />
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
+        <Select>
+          <Link to="/Home/Game">
+            <img width="400px" height="400px" src={process.env.PUBLIC_URL + '/images/img1.png'} alt=""/>
+          </Link>
+          <p>Mouse Game</p>
+        </Select>
+        <Select>
+          <a href="https://jiho3894.github.io/cloneNetflix/">
+            <img width="400px" height="400px" src={process.env.PUBLIC_URL + '/images/img2.png'} alt=""/>
+          </a>
+          <p>Netflix</p>
+        </Select>
+        <Select>
+          <a href="https://jiho3894.github.io/Web-Synthesizer/piano/">
+            <img width="400px" height="400px" src={process.env.PUBLIC_URL + '/images/img2.png'} alt=""/>
+          </a>
+          <p>Web-Synthesizer</p>
+        </Select>
+        <Select>
+          <img width="400px" height="400px" src={process.env.PUBLIC_URL + '/images/img2.png'} alt=""/>
+          <p>Study Blog</p>
+        </Select>
       </Container>
       <Under>
         <>

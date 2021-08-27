@@ -5,6 +5,7 @@ import Home from 'routes/Home';
 import Navigation from "components/Navigation";
 import Profile from 'routes/Profile';
 import AccountForm from './AccountForm';
+import Game from 'routes/Game';
 
 const RouterHandle = ({ refreshUser, isLoggedIn, userObj }) => {
   return (
@@ -17,6 +18,9 @@ const RouterHandle = ({ refreshUser, isLoggedIn, userObj }) => {
           </Route>
           <Route exact path="/Home" component={Home}>
             <Home userObj={userObj}/>
+          </Route>
+          <Route exact path="/Home/Game" component={Game}>
+            <Game/>
           </Route>
           <Route exact path="/profile" component={Profile}>
             <Profile refreshUser={refreshUser} userObj={userObj}/>
