@@ -9,7 +9,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 `;
 
 const Board = ({numbers, handleClick}) => {
