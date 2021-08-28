@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/CharleyBlog/static/js/main.342c4ee5.chunk.js",
-    "main.js.map": "/CharleyBlog/static/js/main.342c4ee5.chunk.js.map",
+    "main.js": "/CharleyBlog/static/js/main.3d555321.chunk.js",
+    "main.js.map": "/CharleyBlog/static/js/main.3d555321.chunk.js.map",
     "runtime-main.js": "/CharleyBlog/static/js/runtime-main.81490732.js",
     "runtime-main.js.map": "/CharleyBlog/static/js/runtime-main.81490732.js.map",
     "static/css/2.818011ed.chunk.css": "/CharleyBlog/static/css/2.818011ed.chunk.css",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.81490732.js",
     "static/css/2.818011ed.chunk.css",
     "static/js/2.f35b24bd.chunk.js",
-    "static/js/main.342c4ee5.chunk.js"
+    "static/js/main.3d555321.chunk.js"
   ]
 }
