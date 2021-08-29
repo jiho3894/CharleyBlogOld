@@ -72,7 +72,7 @@ const Home = ({ userObj }) => {
       <Link to="/">돌아가기</Link>
       <Container>
         <Select>
-          <Link to="/Home/Game">
+          <Link to="/Game">
             <img width="400px" height="400px" src={process.env.PUBLIC_URL + '/images/img1.png'} alt=""/>
           </Link>
           <p>Mouse Game</p>
@@ -85,12 +85,12 @@ const Home = ({ userObj }) => {
         </Select>
         <Select>
           <a href="https://jiho3894.github.io/Web-Synthesizer/piano/">
-            <img width="400px" height="400px" src={process.env.PUBLIC_URL + '/images/img2.png'} alt=""/>
+            <img width="400px" height="400px" src={process.env.PUBLIC_URL + '/images/img3.png'} alt=""/>
           </a>
           <p>Web-Synthesizer</p>
         </Select>
         <Select>
-          <img width="400px" height="400px" src={process.env.PUBLIC_URL + '/images/img2.png'} alt=""/>
+          <img width="400px" height="400px" src={process.env.PUBLIC_URL + '/images/img4.png'} alt=""/>
           <p>Study Blog</p>
         </Select>
       </Container>

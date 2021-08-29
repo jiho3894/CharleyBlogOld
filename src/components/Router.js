@@ -19,7 +19,7 @@ const RouterHandle = ({ refreshUser, isLoggedIn, userObj }) => {
           <Route exact path="/Home" component={Home}>
             <Home userObj={userObj}/>
           </Route>
-          <Route exact path="/Home/Game" component={Game}>
+          <Route exact path="/Game" component={Game}>
             <Game/>
           </Route>
           <Route exact path="/profile" component={Profile}>
