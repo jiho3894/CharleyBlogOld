@@ -6,6 +6,7 @@ import Navigation from "components/Navigation";
 import Profile from 'routes/Profile';
 import AccountForm from './AccountForm';
 import Game from 'routes/Game';
+import RamdomNumber from './game/RamdomNumber';
 
 const RouterHandle = ({ refreshUser, isLoggedIn, userObj }) => {
   return (
@@ -21,6 +22,9 @@ const RouterHandle = ({ refreshUser, isLoggedIn, userObj }) => {
           </Route>
           <Route exact path="/Game" component={Game}>
             <Game/>
+          </Route>
+          <Route exact path="/Game/mouse" component={Game}>
+            <RamdomNumber></RamdomNumber>
           </Route>
           <Route exact path="/profile" component={Profile}>
             <Profile refreshUser={refreshUser} userObj={userObj}/>

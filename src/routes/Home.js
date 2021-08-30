@@ -49,6 +49,17 @@ const Box = styled.div`
   grid-template-rows: repeat(auto-fit, 30px);
 `;
 
+const Text = styled.p`
+  font-size: 30px;
+  font-weight: 600;
+`;
+
+const Text2 = styled.p`
+  margin-top: 100px;
+  font-size: 30px;
+  font-weight: 600;
+`;
+
 const useToggle = (initialState = false) => {
   const [state, setState] = useState(initialState);
   const toggle = useCallback(() => setState(state => !state), []);
@@ -75,23 +86,23 @@ const Home = ({ userObj }) => {
           <Link to="/Game">
             <img width="400px" height="400px" src={process.env.PUBLIC_URL + '/images/img1.png'} alt=""/>
           </Link>
-          <p>Mouse Game</p>
+          <Text>Mouse Game</Text>
         </Select>
         <Select>
           <a href="https://jiho3894.github.io/cloneNetflix/">
             <img width="400px" height="400px" src={process.env.PUBLIC_URL + '/images/img2.png'} alt=""/>
           </a>
-          <p>Netflix</p>
+          <Text>Netflix</Text>
         </Select>
         <Select>
           <a href="https://jiho3894.github.io/Web-Synthesizer/piano/">
             <img width="400px" height="400px" src={process.env.PUBLIC_URL + '/images/img3.png'} alt=""/>
           </a>
-          <p>Web-Synthesizer</p>
+          <Text>Web-Synthesizer</Text>
         </Select>
         <Select>
-          <img width="400px" height="400px" src={process.env.PUBLIC_URL + '/images/img4.png'} alt=""/>
-          <p>Study Blog</p>
+          <img width="400px" height="300px" src={process.env.PUBLIC_URL + '/images/img4.png'} alt=""/>
+          <Text2>Study Blog</Text2>
         </Select>
       </Container>
       <Under>

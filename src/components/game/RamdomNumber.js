@@ -70,7 +70,7 @@ const RamdomNumber = () => {
   return (
     <Body>
       <h1>랜덤숫자 맞추기 게임</h1>
-      <Link to="/Home">돌아가기</Link>
+      
       <Container>
         {gameFlag ? (
           <>
@@ -79,7 +79,10 @@ const RamdomNumber = () => {
             <Button variant="primary" size="lg" onClick={endGame}>그만하기</Button>
           </>
         ) : (
-          <Button variant="primary" size="lg" onClick={gameStart}>Start</Button>
+          <>
+            <Link to="/Home">돌아가기</Link>
+            <Button variant="primary" size="lg" onClick={gameStart}>Start</Button>
+          </>
         )}
       </Container>
     </Body>

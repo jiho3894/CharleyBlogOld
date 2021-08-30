@@ -27,29 +27,10 @@ const LI = styled.li`
   justify-content: space-between;
 `;
 
-const Container = styled.div`
-  width: 400px;
-  height: 250px;
-  background-image: url("https://www.pngkey.com/png/full/110-1103031_talking-png-download-face-to-face-talk-png.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+const Container2 = styled.img`
   &:hover {
     width: 410px;
-    height: 260px;
-  }
-`;
-
-const Container2 = styled.div`
-  width: 400px;
-  height: 250px;
-  background-image: url("https://img.icons8.com/color/452/edit-user-female.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  &:hover {
-    width: 410px;
-    height: 260px;
+    height: 310px;
   }
 `;
 
@@ -65,19 +46,20 @@ const Text = styled.p`
   font-weight: 600;
 `;
 
+
 const Navigation = ({ userObj }) => {
   return(
   <Body>
     <UL>
       <LI>
         <SLink to="/Home">
-          <Container/>
+        <img width="400px" height="300px" src={process.env.PUBLIC_URL + '/images/home.gif'} alt=""/>
         </SLink>
         <Text>Home</Text>
       </LI>
       <LI>
         <SLink to="/profile">
-          <Container2/>
+          <Container2 width="400px" height="300px" src={process.env.PUBLIC_URL + '/images/profile.png'} alt=""/>
         </SLink>
         <Text>{userObj.displayName}님의 프로필</Text>
       </LI>

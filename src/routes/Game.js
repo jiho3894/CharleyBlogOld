@@ -1,11 +1,26 @@
 import React from "react";
 import styled from "styled-components";
-import RamdomNumber from "components/game/RamdomNumber";
+import { Link } from "react-router-dom";
 
-const Body = styled.div`
+const Body = styled.body`
   width: 100%;
   height: 100vh;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  `;
+
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(2,1fr);
+  grid-template-columns: repeat(2,1fr);
+`;
+
+const Select = styled.div`
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
@@ -13,7 +28,20 @@ const Body = styled.div`
 const App = () =>{
   return (
     <Body>
-      <RamdomNumber></RamdomNumber>
+      <Container>
+        <Select>
+          <Link to="/Game/mouse">?</Link>
+        </Select>
+        <Select>
+          <Link to="/Game/mouse">?</Link>
+        </Select>
+        <Select>
+          <Link to="/Game/mouse">?</Link>
+        </Select>
+        <Select>
+          <Link to="/Game/mouse">?</Link>
+        </Select>
+      </Container>
     </Body>
   );
 }
