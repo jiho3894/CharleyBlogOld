@@ -8,7 +8,7 @@ import { Button, ButtonToolbar } from 'react-bootstrap';
 
 const Body = styled.body`
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,7 +80,6 @@ const Home = ({ userObj }) => {
 
   return (
     <Body>
-      <Link to="/">돌아가기</Link>
       <Container>
         <Select>
           <Link to="/Game">

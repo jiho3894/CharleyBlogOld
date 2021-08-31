@@ -2,69 +2,24 @@ import React from "react";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
 
-const Body = styled.nav`
+const Header = styled.header`
   width: 100%;
-  height: 100vh;
+  height: 100px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const UL = styled.ul`
-  list-style: none;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-`;
-
-const LI = styled.li`
-  float: left;
-  width: 400px;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 `;
-
-const Container2 = styled.img`
-  &:hover {
-    width: 410px;
-    height: 310px;
-  }
-`;
-
-const SLink = styled(Link)`
-  width: 100%;
-  text-align: center;
-`;
-
-const Text = styled.p`
-  text-align: center;
-  vertical-align: bottom; 
-  font-size: 30px;
-  font-weight: 600;
-`;
-
 
 const Navigation = ({ userObj }) => {
   return(
-  <Body>
-    <UL>
-      <LI>
-        <SLink to="/Home">
-        <img width="400px" height="300px" src={process.env.PUBLIC_URL + '/images/home.gif'} alt=""/>
-        </SLink>
-        <Text>Home</Text>
-      </LI>
-      <LI>
-        <SLink to="/profile">
-          <Container2 width="400px" height="300px" src={process.env.PUBLIC_URL + '/images/profile.png'} alt=""/>
-        </SLink>
-        <Text>{userObj.displayName}님의 프로필</Text>
-      </LI>
-    </UL>
-  </Body>
+    <Header>
+      <Link to="/">
+        <img width="50px" height="50px" src={process.env.PUBLIC_URL + '/images/home.gif'} alt=""/>
+      </Link>
+      <Link to="/profile">
+        <img width="50px" height="50px" src={process.env.PUBLIC_URL + '/images/profile.png'} alt=""/>
+      </Link>
+    </Header>
 )};
 
 export default Navigation;

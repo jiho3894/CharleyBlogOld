@@ -30,16 +30,16 @@ const App = () =>{
     <Body>
       <Container>
         <Select>
-          <Link to="/Game/mouse">?</Link>
+          <Link to="/Game/mouse">랜덤 숫자 맞추기</Link>
         </Select>
         <Select>
-          <Link to="/Game/mouse">?</Link>
+          <Link>?</Link>
         </Select>
         <Select>
-          <Link to="/Game/mouse">?</Link>
+          <Link>?</Link>
         </Select>
         <Select>
-          <Link to="/Game/mouse">?</Link>
+          <Link>?</Link>
         </Select>
       </Container>
     </Body>

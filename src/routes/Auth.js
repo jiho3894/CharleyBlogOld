@@ -2,6 +2,7 @@ import AuthForm from 'components/AuthForm';
 import { authService, firebaseInstance } from 'fbase';
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 const Body = styled.div`
   font-size: 13px;
@@ -49,6 +50,7 @@ const GitHub = styled.button`
 `;
 
 const Auth = () => {
+  const history = useHistory();
   const onSocialClick = async (event) => {
     const {target : {name} } = event;
     let provider;
@@ -58,8 +60,9 @@ const Auth = () => {
       provider = new firebaseInstance.auth.GithubAuthProvider();
     }
     await authService.signInWithPopup(provider);
+    history.push("/");
   };
-  
+
   return (
     <Body>
       <Container>

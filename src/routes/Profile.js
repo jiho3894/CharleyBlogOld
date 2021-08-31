@@ -2,7 +2,7 @@ import { authService } from 'fbase';
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-const Profile = ({ refreshUser, userObj }) => {
+const Profile = ({ refreshUser, userObj, isLoggedIn }) => {
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
   const history = useHistory();
 
@@ -28,13 +28,19 @@ const Profile = ({ refreshUser, userObj }) => {
 
   return(
     <>
-      <form onSubmit={onSubmit} >
-        <input 
-        onChange={onChange} value={newDisplayName} type="text" placeholder="Display name" />
-        <input  type="submit" value="프로필 수정" />
-      </form>
-      <button onClick={onLogOutClick}>로그아웃</button>
-      <Link to="/">돌아가기</Link>
+      { !isLoggedIn ? (
+      <>
+        <form onSubmit={onSubmit} >
+          <input 
+          onChange={onChange} value={newDisplayName} type="text" placeholder="Display name" />
+          <input  type="submit" value="프로필 수정" />
+        </form>
+        <button onClick={onLogOutClick}>로그아웃</button>
+        <p>{userObj.displayName}</p>
+        <Link to="/">돌아가기</Link>
+      </>
+      ) : null
+      }
     </>
   );
 };

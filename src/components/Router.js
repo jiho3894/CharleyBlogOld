@@ -8,16 +8,13 @@ import AccountForm from './AccountForm';
 import Game from 'routes/Game';
 import RamdomNumber from './game/RamdomNumber';
 
-const RouterHandle = ({ refreshUser, isLoggedIn, userObj }) => {
+const RouterHandle = ({ refreshUser, userObj, isLoggedIn }) => {
   return (
     <Router>
+      <Navigation userObj={userObj}/>
       <Switch>
-        {isLoggedIn ? (
         <>
-          <Route exact path="/" component={Navigation}>
-            <Navigation userObj={userObj}/>
-          </Route>
-          <Route exact path="/Home" component={Home}>
+          <Route exact path="/" component={Home}>
             <Home userObj={userObj}/>
           </Route>
           <Route exact path="/Game" component={Game}>
@@ -26,20 +23,22 @@ const RouterHandle = ({ refreshUser, isLoggedIn, userObj }) => {
           <Route exact path="/Game/mouse" component={Game}>
             <RamdomNumber></RamdomNumber>
           </Route>
-          <Route exact path="/profile" component={Profile}>
-            <Profile refreshUser={refreshUser} userObj={userObj}/>
-          </Route>
-        </>
-        ) : (
-          <>
-            <Route exact path="/" component={Auth}>
+          {isLoggedIn ? 
+          (
+            <Route exact path="/profile" component={Profile}>
+              <Profile refreshUser={refreshUser} userObj={userObj}/>
+            </Route>
+          ) : 
+          (
+            <Route exact path="/profile" component={Auth}>
               <Auth/>
             </Route>
-            <Route exact path="/Account" component={AccountForm}>
-              <AccountForm/>
-            </Route>
-          </>
-        )}
+          )
+        }
+          <Route exact path="/Account" component={AccountForm}>
+            <AccountForm/>
+          </Route>
+        </>
       </Switch>
     </Router>
   );

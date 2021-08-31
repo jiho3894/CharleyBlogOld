@@ -1,6 +1,6 @@
 import { authService } from 'fbase';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Error = styled.div`
@@ -110,12 +110,12 @@ const AuthForm = () => {
       setPassword(value);
     }
   }
-
+  const history = useHistory();
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      
       await authService.createUserWithEmailAndPassword(email, password);
+      history.push("/");
     } catch(error) {
       if(password !== passwordCheck) {
         return alert('비밀번호와 비밀번호 확인이 일치해야 합니다.')
@@ -160,7 +160,7 @@ const AuthForm = () => {
               비밀번호가 일치하지 않습니다.
             </ErrorText>}
           </Error>
-          <Login type="submit" >계정생성</Login>
+          <Login type="submit">계정생성</Login>
           <SLink to="/">
             <Text>돌아가기</Text>
           </SLink>
