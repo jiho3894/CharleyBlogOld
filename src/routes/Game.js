@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Body = styled.body`
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
   align-items: center;
