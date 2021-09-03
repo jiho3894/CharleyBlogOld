@@ -33,7 +33,7 @@ const App = () =>{
           <Link to="/Game/mouse">랜덤 숫자 맞추기</Link>
         </Select>
         <Select>
-          <Link>?</Link>
+          <Link>마우스 클릭 연습</Link>
         </Select>
         <Select>
           <Link>?</Link>
