@@ -36,7 +36,7 @@ const App = () =>{
           <Link>마우스 클릭 연습</Link>
         </Select>
         <Select>
-          <Link>?</Link>
+          <Link>벽돌깨기</Link>
         </Select>
         <Select>
           <Link>?</Link>
