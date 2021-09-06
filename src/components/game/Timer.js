@@ -16,7 +16,7 @@ function Timer() {
   }, []);
   return (
     <Container>
-      <Front>{Math.floor(timeElapsed / 1000)}:</Front>
+      <Minute>{Math.floor(timeElapsed / 1000)}:</Minute>
       <Back>{(timeElapsed % 1000) / 10}</Back>
     </Container>
   );
@@ -33,7 +33,7 @@ const Container = styled.div`
   font-weight: 600;
 `;
 
-const Front = styled.div`
+const Minute = styled.div`
   text-align: right;
 `;
 
