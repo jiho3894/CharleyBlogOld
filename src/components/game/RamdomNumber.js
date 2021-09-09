@@ -80,7 +80,7 @@ const RamdomNumber = () => {
           </>
         ) : (
           <>
-            <Link to="/Home">돌아가기</Link>
+            <Link to="/Game">돌아가기</Link>
             <Button variant="primary" size="lg" onClick={gameStart}>Start</Button>
           </>
         )}
