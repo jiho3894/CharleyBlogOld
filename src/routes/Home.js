@@ -1,10 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { dbService } from "fbase";
-import Tweet from 'components/Tweet';
-import TweetFactory from "components/TweetFactory";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Button, ButtonToolbar } from 'react-bootstrap';
+
 
 const Body = styled.body`
   width: 100%;
@@ -29,26 +26,6 @@ const Select = styled.div`
   align-items: center;
 `;
 
-const Under = styled.div`
-  position: absolute;
-  bottom: 0;
-`;
-
-const Chatting = styled.div`
-  display: flex;
-  position: absolute;
-  flex-direction: column-reverse;
-  align-items: center;
-  width: 400px;
-  height: 400px;
-  bottom: 50px;
-`;
-
-const Box = styled.div`
-  display: grid;
-  grid-template-rows: repeat(auto-fit, 30px);
-`;
-
 const Text = styled.p`
   font-size: 30px;
   font-weight: 600;
@@ -60,24 +37,7 @@ const Text2 = styled.p`
   font-weight: 600;
 `;
 
-const useToggle = (initialState = false) => {
-  const [state, setState] = useState(initialState);
-  const toggle = useCallback(() => setState(state => !state), []);
-  return [state, toggle];
-}
-
-const Home = ({ userObj }) => {
-  const [tweets, setTweets] = useState([]);
-  const [isOn, toggleIsOn] = useToggle();
-  useEffect(() => {
-    dbService.collection("tweet").orderBy("createAt","desc").onSnapshot((snapshot) => {
-    const TweetArray = snapshot.docs.map((doc) => {
-      return { id: doc.id, ...doc.data() };
-    });
-      setTweets(TweetArray);
-    });
-  }, []);
-
+const Home = () => {
   return (
     <Body>
       <Container>
@@ -100,31 +60,12 @@ const Home = ({ userObj }) => {
           <Text>Web-Synthesizer</Text>
         </Select>
         <Select>
-          <img width="400px" height="300px" src={process.env.PUBLIC_URL + '/images/img4.png'} alt=""/>
+          <Link to="/studyBlog">
+            <img width="400px" height="300px" src={process.env.PUBLIC_URL + '/images/img4.png'} alt=""/>
+          </Link>
           <Text2>Study Blog</Text2>
         </Select>
       </Container>
-      <Under>
-        <>
-          { isOn ? (
-            <Chatting>
-              <TweetFactory userObj={userObj}/>
-              <Box>
-                  {tweets.map((tweet) => (
-                    <Tweet 
-                    key={tweet.id} 
-                    tweetObj={tweet} 
-                    isOwner={tweet.creatorId === userObj.uid}/>
-                  ))}
-              </Box>
-            </Chatting>
-            ) : null
-          }
-        </>
-        <ButtonToolbar>
-            <Button variant="primary" onClick={toggleIsOn} size="sm" >Chatting</Button>
-        </ButtonToolbar>
-      </Under>
     </Body>
   );
 };
