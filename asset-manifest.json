@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/CharleyBlog/static/js/main.62b3a106.chunk.js",
-    "main.js.map": "/CharleyBlog/static/js/main.62b3a106.chunk.js.map",
+    "main.js": "/CharleyBlog/static/js/main.e21816e3.chunk.js",
+    "main.js.map": "/CharleyBlog/static/js/main.e21816e3.chunk.js.map",
     "runtime-main.js": "/CharleyBlog/static/js/runtime-main.81490732.js",
     "runtime-main.js.map": "/CharleyBlog/static/js/runtime-main.81490732.js.map",
     "static/css/2.818011ed.chunk.css": "/CharleyBlog/static/css/2.818011ed.chunk.css",
-    "static/js/2.7cb9b2a2.chunk.js": "/CharleyBlog/static/js/2.7cb9b2a2.chunk.js",
-    "static/js/2.7cb9b2a2.chunk.js.map": "/CharleyBlog/static/js/2.7cb9b2a2.chunk.js.map",
+    "static/js/2.4e6b46c9.chunk.js": "/CharleyBlog/static/js/2.4e6b46c9.chunk.js",
+    "static/js/2.4e6b46c9.chunk.js.map": "/CharleyBlog/static/js/2.4e6b46c9.chunk.js.map",
     "index.html": "/CharleyBlog/index.html",
     "static/css/2.818011ed.chunk.css.map": "/CharleyBlog/static/css/2.818011ed.chunk.css.map",
-    "static/js/2.7cb9b2a2.chunk.js.LICENSE.txt": "/CharleyBlog/static/js/2.7cb9b2a2.chunk.js.LICENSE.txt"
+    "static/js/2.4e6b46c9.chunk.js.LICENSE.txt": "/CharleyBlog/static/js/2.4e6b46c9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.81490732.js",
     "static/css/2.818011ed.chunk.css",
-    "static/js/2.7cb9b2a2.chunk.js",
-    "static/js/main.62b3a106.chunk.js"
+    "static/js/2.4e6b46c9.chunk.js",
+    "static/js/main.e21816e3.chunk.js"
   ]
 }
