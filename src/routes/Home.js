@@ -60,7 +60,7 @@ const Home = () => {
           <Text>Web-Synthesizer</Text>
         </Select>
         <Select>
-          <Link to="/studyBlog">
+          <Link to="/StudyBlog">
             <img width="400px" height="300px" src={process.env.PUBLIC_URL + '/images/img4.png'} alt=""/>
           </Link>
           <Text2>Study Blog</Text2>

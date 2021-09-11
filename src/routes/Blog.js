@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { dbService } from "fbase";
 import Tweet from 'components/Tweet';
-import TweetFactory from "components/TweetFactory";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Body = styled.div`
   position: absolute;
-  bottom: 0;
 `;
 
 const Box = styled.div`
   display: grid;
-  grid-template-rows: repeat(auto-fit, 30px);
+  grid-template-rows: repeat(auto-fit, 100px);
 `;
 
 const Blog = ({ userObj }) => {
@@ -24,18 +23,23 @@ const Blog = ({ userObj }) => {
       setTweets(TweetArray);
     });
   }, []);
+
   return(
     <Body>
-        <>
-          <TweetFactory userObj={userObj}/>
-          <Box>
-            {tweets.map((tweet) => (
+      <Link to="StudyBlog/Upload">
+        올리기
+      </Link>
+      <>
+        <Box>
+          {tweets.map((tweet) => (
+            <Link to={`/StudyBlog/${tweet.id}`}>
               <Tweet 
               key={tweet.id} 
               tweetObj={tweet} 
               isOwner={tweet.creatorId === userObj.uid}/>
-            ))}
-          </Box>
+            </Link>
+          ))}
+        </Box>
       </>
     </Body>
   );

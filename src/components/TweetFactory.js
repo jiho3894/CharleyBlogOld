@@ -1,5 +1,6 @@
 import { dbService, storageService } from 'fbase';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
 import {v4 as uuidv4 } from 'uuid';
 
@@ -14,8 +15,9 @@ const File = styled.input`
 const TweetFactory = ({ userObj }) => {
   const [tweet, setTweet] = useState("");
   const [attachment, setAttachment] = useState("");
-
+  const history = useHistory();
   const onSubmit = async (event) => {
+    history.push("/studyBlog");
     event.preventDefault();
     let attachmentUrl = "";
     if(attachment !== "") {
