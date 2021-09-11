@@ -25,9 +25,11 @@ const RouterHandle = ({ refreshUser, userObj, isLoggedIn, tweetObj}) => {
           <Route exact path="/StudyBlog">
             <StudyBlog userObj={userObj}/>
           </Route>
-          <Route exact path="/StudyBlog/:id">
-            <Detail userObj={userObj} tweetObj={tweetObj}/>
-          </Route>
+          <>
+            <Route exact path="/StudyBlog/{뭐야이거}/:id">
+              <Detail userObj={userObj} tweetObj={tweetObj}/>
+            </Route>
+          </>
           <Route exact path="/StudyBlog/Upload">
             <Upload userObj={userObj}/>
           </Route>

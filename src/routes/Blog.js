@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { dbService } from "fbase";
-import Tweet from 'components/Tweet';
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Detail from "components/BlogRoute/Detail";
 
 const Body = styled.div`
   position: absolute;
@@ -32,12 +32,10 @@ const Blog = ({ userObj }) => {
       <>
         <Box>
           {tweets.map((tweet) => (
-            <Link to={`/StudyBlog/${tweet.id}`}>
-              <Tweet 
+              <Detail
               key={tweet.id} 
               tweetObj={tweet} 
               isOwner={tweet.creatorId === userObj.uid}/>
-            </Link>
           ))}
         </Box>
       </>
