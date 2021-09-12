@@ -6,9 +6,8 @@ import Navigation from "components/Navigation";
 import Profile from 'routes/Profile';
 import AccountForm from './AccountForm';
 import RamdomNumber from './game/RamdomNumber';
-import StudyBlog from 'routes/Blog';
+import Blog from 'routes/Blog';
 import Upload from './BlogRoute/Upload';
-import Detail from './BlogRoute/Detail';
 
 const RouterHandle = ({ refreshUser, userObj, isLoggedIn, tweetObj}) => {
   return (
@@ -23,13 +22,8 @@ const RouterHandle = ({ refreshUser, userObj, isLoggedIn, tweetObj}) => {
             <RamdomNumber></RamdomNumber>
           </Route>
           <Route exact path="/StudyBlog">
-            <StudyBlog userObj={userObj}/>
+            <Blog userObj={userObj}/>
           </Route>
-          <>
-            <Route exact path="/StudyBlog/{뭐야이거}/:id">
-              <Detail userObj={userObj} tweetObj={tweetObj}/>
-            </Route>
-          </>
           <Route exact path="/StudyBlog/Upload">
             <Upload userObj={userObj}/>
           </Route>
