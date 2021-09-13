@@ -23,19 +23,22 @@ const Blog = ({ userObj }) => {
       setTweets(TweetArray);
     });
   }, []);
-
+  console.log(tweets);
   return(
     <Body>
-      <Link to="StudyBlog/Upload">
+      <Link to="/StudyBlog/Upload">
         올리기
       </Link>
       <>
         <Box>
           {tweets.map((tweet) => (
-                <Poster
+            <>
+              <Poster
                 key={tweet.id} 
                 tweetObj={tweet} 
                 isOwner={tweet.creatorId === userObj.uid}/>
+              <Link to={`/StudyBlog/Detail/${tweet.id}`}>자세히</Link>
+            </>
           ))}
         </Box>
       </>

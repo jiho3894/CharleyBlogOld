@@ -7,7 +7,7 @@ const Body = styled.div`
   display: flex;
 `;
 
-const Detail = ({ tweetObj, isOwner }) => {
+const Poster = ({ tweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
   const [newTweet, setNewTweet] = useState(tweetObj.text);
 
@@ -74,4 +74,4 @@ const Detail = ({ tweetObj, isOwner }) => {
   );
 };
 
-export default Detail;
+export default Poster;

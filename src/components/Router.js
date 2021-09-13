@@ -9,7 +9,7 @@ import RamdomNumber from './game/RamdomNumber';
 import Blog from 'routes/Blog';
 import Upload from './BlogRoute/Upload';
 
-const RouterHandle = ({ refreshUser, userObj, isLoggedIn, tweetObj}) => {
+const RouterHandle = ({ refreshUser, userObj, isLoggedIn }) => {
   return (
     <Router>
       <Navigation userObj={userObj}/>
