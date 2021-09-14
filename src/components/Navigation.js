@@ -10,7 +10,7 @@ const Header = styled.header`
   align-items: center;
 `;
 
-const Navigation = ({ userObj }) => {
+const Navigation = () => {
   return(
     <Header>
       <Link to="/">

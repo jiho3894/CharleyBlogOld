@@ -156,9 +156,12 @@ const AuthForm = () => {
             minLength="6"
           />
           <Error>
-            {passwordError && <ErrorText>
-              비밀번호가 일치하지 않습니다.
-            </ErrorText>}
+            {
+              passwordError &&  
+              <ErrorText>
+                비밀번호가 일치하지 않습니다.
+              </ErrorText>
+            }
           </Error>
           <Login type="submit">계정생성</Login>
           <SLink to="/">

@@ -34,12 +34,12 @@ const TweetFactory = ({ userObj }) => {
   await dbService.collection("tweet").add(tweetObj);
   setTweet("");
   setAttachment("");
-  };
+};
 
   const onChange = (event) => {
     const {target: { value } } = event;
     setTweet(value);
-  };
+};
 
   const onFileChange = (event) => {
     const {target: {files}} = event;

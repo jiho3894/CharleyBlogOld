@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+/*
 import { Link } from "react-router-dom";
+*/
 
 
 const Body = styled.body`
@@ -42,10 +44,10 @@ const Home = () => {
     <Body>
       <Container>
         <Select>
-          <Link to="/Game">
+
             <img width="400px" height="400px" src={process.env.PUBLIC_URL + '/images/img1.png'} alt=""/>
-          </Link>
-          <Text>Mouse Game</Text>
+
+          <Text>점검 중...</Text>
         </Select>
         <Select>
           <a href="https://jiho3894.github.io/cloneNetflix/">
@@ -60,10 +62,10 @@ const Home = () => {
           <Text>Web-Synthesizer</Text>
         </Select>
         <Select>
-          <Link to="/StudyBlog">
+
             <img width="400px" height="300px" src={process.env.PUBLIC_URL + '/images/img4.png'} alt=""/>
-          </Link>
-          <Text2>Study Blog</Text2>
+
+          <Text2>점검 중...</Text2>
         </Select>
       </Container>
     </Body>

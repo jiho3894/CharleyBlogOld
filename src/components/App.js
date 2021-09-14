@@ -11,7 +11,7 @@ const Body = styled.body`
   margin: 0;
 `;
 
-function App() {
+const App = () => {
   const [init, setInit] = useState(false);
   const [userObj, setUserObj] = useState(null);
 
