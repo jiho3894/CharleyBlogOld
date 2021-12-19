@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = styled.header`
@@ -11,15 +11,26 @@ const Header = styled.header`
 `;
 
 const Navigation = () => {
-  return(
+  return (
     <Header>
       <Link to="/">
-        <img width="50px" height="50px" src={process.env.PUBLIC_URL + '/images/home.gif'} alt=""/>
+        <img
+          width="50px"
+          height="50px"
+          src={process.env.PUBLIC_URL + "/images/home.gif"}
+          alt=""
+        />
       </Link>
       <Link to="/profile">
-        <img width="50px" height="50px" src={process.env.PUBLIC_URL + '/images/profile.png'} alt=""/>
+        <img
+          width="50px"
+          height="50px"
+          src={process.env.PUBLIC_URL + "/images/profile.png"}
+          alt=""
+        />
       </Link>
     </Header>
-)};
+  );
+};
 
 export default Navigation;

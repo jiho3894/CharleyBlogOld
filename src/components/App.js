@@ -40,7 +40,7 @@ const App = () => {
       updateProfile: (args) => user.updateProfile(args),
     });
   };
-  
+
   return (
     <Body>
       <GlobalStyles />
@@ -57,6 +57,6 @@ const App = () => {
       )}
     </Body>
   );
-}
+};
 
 export default App;

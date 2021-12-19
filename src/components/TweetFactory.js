@@ -1,8 +1,8 @@
-import { dbService, storageService } from 'fbase';
-import React, { useState } from 'react';
-import { useHistory } from 'react-router';
-import styled from 'styled-components';
-import {v4 as uuidv4 } from 'uuid';
+import { dbService, storageService } from "fbase";
+import React, { useState } from "react";
+import { useHistory } from "react-router";
+import styled from "styled-components";
+import { v4 as uuidv4 } from "uuid";
 
 const Chat = styled.input`
   width: 200px;
@@ -20,39 +20,47 @@ const TweetFactory = ({ userObj }) => {
     history.push("/studyBlog");
     event.preventDefault();
     let attachmentUrl = "";
-    if(attachment !== "") {
-      const attachmentRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
+    if (attachment !== "") {
+      const attachmentRef = storageService
+        .ref()
+        .child(`${userObj.uid}/${uuidv4()}`);
       const response = await attachmentRef.putString(attachment, "data_url");
       attachmentUrl = await response.ref.getDownloadURL();
     }
-  const tweetObj = {
-    text: tweet,
-    createAt: Date.now(),
-    creatorId: userObj.uid,
-    attachmentUrl
-  }
-  await dbService.collection("tweet").add(tweetObj);
-  setTweet("");
-  setAttachment("");
-};
+    const tweetObj = {
+      text: tweet,
+      createAt: Date.now(),
+      creatorId: userObj.uid,
+      attachmentUrl,
+    };
+    await dbService.collection("tweet").add(tweetObj);
+    setTweet("");
+    setAttachment("");
+  };
 
   const onChange = (event) => {
-    const {target: { value } } = event;
+    const {
+      target: { value },
+    } = event;
     setTweet(value);
-};
+  };
 
   const onFileChange = (event) => {
-    const {target: {files}} = event;
+    const {
+      target: { files },
+    } = event;
     const theFile = files[0];
     const reader = new FileReader();
-    if(theFile) {
-    reader.onloadend = (finishedEvent) => {
-      const {currentTarget : {result}} = finishedEvent;
-      setAttachment(result);
-    };
-    reader.readAsDataURL(theFile);
+    if (theFile) {
+      reader.onloadend = (finishedEvent) => {
+        const {
+          currentTarget: { result },
+        } = finishedEvent;
+        setAttachment(result);
+      };
+      reader.readAsDataURL(theFile);
     }
-  }
+  };
 
   const onClearPhotoClick = () => setAttachment("");
 
@@ -66,7 +74,7 @@ const TweetFactory = ({ userObj }) => {
         maxLength={100}
         required
       />
-      <File type="file" accept="image/*" onChange={onFileChange}/>
+      <File type="file" accept="image/*" onChange={onFileChange} />
       <input type="submit" value="올리기" />
       {attachment && (
         <div>
@@ -75,6 +83,6 @@ const TweetFactory = ({ userObj }) => {
         </div>
       )}
     </form>
-  )
-}
+  );
+};
 export default TweetFactory;

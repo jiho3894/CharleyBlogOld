@@ -8,11 +8,11 @@ const Body = styled.div`
 `;
 
 const Upload = ({ userObj }) => {
-  return(
+  return (
     <Body>
-      <TweetFactory userObj={userObj}/>
+      <TweetFactory userObj={userObj} />
     </Body>
   );
-}
+};
 
 export default Upload;

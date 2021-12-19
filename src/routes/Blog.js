@@ -4,7 +4,6 @@ import styled from "styled-components";
 // import { Link } from "react-router-dom";
 // import Poster from 'components/BlogRoute/Poster';
 
-
 const Body = styled.div`
   position: absolute;
 `;
@@ -14,19 +13,18 @@ const Box = styled.div`
   grid-template-rows: repeat(auto-fit, 100px);
 `;
 
-
 const What = () => {
   const [counter, setCounter] = useState(0);
   const onClick = () => {
-    setCounter(current => current + 1);
-  }
+    setCounter((current) => current + 1);
+  };
   return (
     <>
       <div>{counter}</div>
       <button onClick={onClick}>click</button>
     </>
-  )
-}
+  );
+};
 
 const Blog = ({ userObj }) => {
   // const [tweets, setTweets] = useState([]);
@@ -39,9 +37,9 @@ const Blog = ({ userObj }) => {
   //   });
   // }, []);
   // console.log(tweets);
-  return(
+  return (
     <Body>
-      <What/>
+      <What />
       {/* <Link to="/StudyBlog/Upload">
         올리기
       </Link>
@@ -60,6 +58,6 @@ const Blog = ({ userObj }) => {
       </> */}
     </Body>
   );
-}
+};
 
 export default Blog;

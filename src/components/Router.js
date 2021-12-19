@@ -1,51 +1,48 @@
-import React from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import Auth from 'routes/Auth';
-import Home from 'routes/Home';
+import React from "react";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import Auth from "routes/Auth";
+import Home from "routes/Home";
 import Navigation from "components/Navigation";
-import Profile from 'routes/Profile';
-import AccountForm from './AccountForm';
-import RamdomNumber from './game/RamdomNumber';
-import Blog from 'routes/Blog';
-import Upload from './BlogRoute/Upload';
+import Profile from "routes/Profile";
+import AccountForm from "./AccountForm";
+import RamdomNumber from "./game/RamdomNumber";
+import Blog from "routes/Blog";
+import Upload from "./BlogRoute/Upload";
 
 const RouterHandle = ({ refreshUser, userObj, isLoggedIn }) => {
   return (
     <Router>
-      <Navigation userObj={userObj}/>
+      <Navigation userObj={userObj} />
       <Switch>
         <>
           <Route exact path="/" component={Home}>
-            <Home userObj={userObj}/>
+            <Home userObj={userObj} />
           </Route>
           <Route exact path="/Game">
             <RamdomNumber></RamdomNumber>
           </Route>
           <Route exact path="/StudyBlog">
-            <Blog userObj={userObj}/>
+            <Blog userObj={userObj} />
           </Route>
           <Route exact path="/StudyBlog/Upload">
-            <Upload userObj={userObj}/>
+            <Upload userObj={userObj} />
           </Route>
-          {isLoggedIn ? 
-          (
+          {isLoggedIn ? (
             <Route exact path="/profile" component={Profile}>
-              <Profile refreshUser={refreshUser} userObj={userObj}/>
+              <Profile refreshUser={refreshUser} userObj={userObj} />
             </Route>
-          ) : 
-          (
+          ) : (
             <Route exact path="/profile" component={Auth}>
-              <Auth/>
+              <Auth />
             </Route>
-          )
-        }
+          )}
           <Route exact path="/Account" component={AccountForm}>
-            <AccountForm/>
+            <AccountForm />
           </Route>
         </>
       </Switch>
     </Router>
   );
-}
+};
 
 export default RouterHandle;

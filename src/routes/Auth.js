@@ -1,8 +1,8 @@
-import AuthForm from 'components/AuthForm';
-import { authService, firebaseInstance } from 'fbase';
-import React from 'react';
-import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
+import AuthForm from "components/AuthForm";
+import { authService, firebaseInstance } from "fbase";
+import React from "react";
+import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const Body = styled.div`
   font-size: 13px;
@@ -52,11 +52,13 @@ const GitHub = styled.button`
 const Auth = () => {
   const history = useHistory();
   const onSocialClick = async (event) => {
-    const {target : {name} } = event;
+    const {
+      target: { name },
+    } = event;
     let provider;
-    if(name === "google") {
+    if (name === "google") {
       provider = new firebaseInstance.auth.GoogleAuthProvider();
-    } else if(name === "github") {
+    } else if (name === "github") {
       provider = new firebaseInstance.auth.GithubAuthProvider();
     }
     await authService.signInWithPopup(provider);
@@ -68,13 +70,12 @@ const Auth = () => {
       <Container>
         <AuthForm />
         <div>
-            <Google onClick={onSocialClick} name="google"></Google>
-            <GitHub onClick={onSocialClick} name="github"></GitHub>
+          <Google onClick={onSocialClick} name="google"></Google>
+          <GitHub onClick={onSocialClick} name="github"></GitHub>
         </div>
       </Container>
     </Body>
   );
-}
-
+};
 
 export default Auth;

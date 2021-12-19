@@ -1,7 +1,7 @@
-import { authService } from 'fbase';
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import styled from 'styled-components';
+import { authService } from "fbase";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import styled from "styled-components";
 
 const Error = styled.div`
   height: 25px;
@@ -57,7 +57,7 @@ const IDPW = styled.input`
   border: none;
   border-bottom: 2px solid #95a5a6;
   &:focus::-webkit-input-placeholder {
-    color:transparent;
+    color: transparent;
   }
 `;
 
@@ -71,7 +71,7 @@ const Login = styled.button`
   outline: none;
   border: none;
   background: white;
-  margin:15px 0 15px 0;
+  margin: 15px 0 15px 0;
   &:hover {
     box-shadow: 0px 0px 4px #666666 inset;
   }
@@ -97,28 +97,30 @@ const Text = styled.span`
 `;
 
 const AuthForm = () => {
-  const [email , setEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordCheck,setPasswordCheck] = useState('');
-  const [passwordError,setPasswordError] = useState(false);
+  const [passwordCheck, setPasswordCheck] = useState("");
+  const [passwordError, setPasswordError] = useState(false);
 
   const onChange = (event) => {
-    const {target: { name, value }} = event;
-    if(name === "email") {
+    const {
+      target: { name, value },
+    } = event;
+    if (name === "email") {
       setEmail(value);
-    } else if(name === "password") {
+    } else if (name === "password") {
       setPassword(value);
     }
-  }
+  };
   const history = useHistory();
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
       await authService.createUserWithEmailAndPassword(email, password);
       history.push("/");
-    } catch(error) {
-      if(password !== passwordCheck) {
-        return alert('비밀번호와 비밀번호 확인이 일치해야 합니다.')
+    } catch (error) {
+      if (password !== passwordCheck) {
+        return alert("비밀번호와 비밀번호 확인이 일치해야 합니다.");
       }
     }
   };
@@ -132,36 +134,36 @@ const AuthForm = () => {
     <Body>
       <Container>
         <Form onSubmit={onSubmit}>
-          <IDPW 
-            name="email" 
-            type="text" 
-            placeholder="이메일" 
-            required value={email} 
+          <IDPW
+            name="email"
+            type="text"
+            placeholder="이메일"
+            required
+            value={email}
             onChange={onChange}
           />
-          <IDPW 
-            name="password" 
-            type="password" 
-            placeholder="비밀번호" 
-            required value={password} 
+          <IDPW
+            name="password"
+            type="password"
+            placeholder="비밀번호"
+            required
+            value={password}
             onChange={onChange}
             minLength="6"
           />
-          <IDPW 
-            name="passwordCheck" 
-            type="password" 
-            placeholder="비밀번호 확인" 
+          <IDPW
+            name="passwordCheck"
+            type="password"
+            placeholder="비밀번호 확인"
             value={passwordCheck}
-            required onChange={onChangePasswordChk}
+            required
+            onChange={onChangePasswordChk}
             minLength="6"
           />
           <Error>
-            {
-              passwordError &&  
-              <ErrorText>
-                비밀번호가 일치하지 않습니다.
-              </ErrorText>
-            }
+            {passwordError && (
+              <ErrorText>비밀번호가 일치하지 않습니다.</ErrorText>
+            )}
           </Error>
           <Login type="submit">계정생성</Login>
           <SLink to="/">
@@ -170,6 +172,6 @@ const AuthForm = () => {
         </Form>
       </Container>
     </Body>
-  )
-}
+  );
+};
 export default AuthForm;

@@ -1,6 +1,6 @@
-import { authService } from 'fbase';
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { authService } from "fbase";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 const Profile = ({ refreshUser, userObj, isLoggedIn }) => {
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
@@ -12,35 +12,40 @@ const Profile = ({ refreshUser, userObj, isLoggedIn }) => {
   };
 
   const onChange = (event) => {
-    const { target : {value} } = event;
+    const {
+      target: { value },
+    } = event;
     setNewDisplayName(value);
-  }
+  };
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    if(userObj.displayName !== newDisplayName){
+    if (userObj.displayName !== newDisplayName) {
       await userObj.updateProfile({
         displayName: newDisplayName,
       });
       refreshUser();
     }
-  }
+  };
 
-  return(
+  return (
     <>
-      { !isLoggedIn ? (
-      <>
-        <form onSubmit={onSubmit} >
-          <input 
-          onChange={onChange} value={newDisplayName} type="text" placeholder="Display name" />
-          <input  type="submit" value="프로필 수정" />
-        </form>
-        <button onClick={onLogOutClick}>로그아웃</button>
-        <p>{userObj.displayName}</p>
-        <Link to="/">돌아가기</Link>
-      </>
-      ) : null
-      }
+      {!isLoggedIn ? (
+        <>
+          <form onSubmit={onSubmit}>
+            <input
+              onChange={onChange}
+              value={newDisplayName}
+              type="text"
+              placeholder="Display name"
+            />
+            <input type="submit" value="프로필 수정" />
+          </form>
+          <button onClick={onLogOutClick}>로그아웃</button>
+          <p>{userObj.displayName}</p>
+          <Link to="/">돌아가기</Link>
+        </>
+      ) : null}
     </>
   );
 };
