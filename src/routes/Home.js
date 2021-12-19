@@ -41,20 +41,21 @@ const Home = () => {
     <Body>
       <Container>
         <Select>
-          <img
-            width="400px"
-            height="400px"
-            src={process.env.PUBLIC_URL + "/images/img1.png"}
-            alt=""
-          />
-
-          <Text>점검 중...</Text>
+          <Link to="/game">
+            <img
+              width="350px"
+              height="350px"
+              src={process.env.PUBLIC_URL + "/images/img1.png"}
+              alt=""
+            />
+          </Link>
+          <Text>Mini Game</Text>
         </Select>
         <Select>
-          <a href="https://jiho3894.github.io/cloneNetflix/">
+          <a href="https://jiho3894.github.io/cloneMovie/#/">
             <img
-              width="400px"
-              height="400px"
+              width="350px"
+              height="350px"
               src={process.env.PUBLIC_URL + "/images/img2.png"}
               alt=""
             />
@@ -64,8 +65,8 @@ const Home = () => {
         <Select>
           <a href="https://jiho3894.github.io/Web-Synthesizer/piano/">
             <img
-              width="400px"
-              height="400px"
+              width="350px"
+              height="350px"
               src={process.env.PUBLIC_URL + "/images/img3.png"}
               alt=""
             />
@@ -73,15 +74,15 @@ const Home = () => {
           <Text>Web-Synthesizer</Text>
         </Select>
         <Select>
-          <Link to="/StudyBlog">
+          <Link to="/TestServer">
             <img
-              width="400px"
-              height="300px"
+              width="350px"
+              height="250px"
               src={process.env.PUBLIC_URL + "/images/img4.png"}
               alt=""
             />
           </Link>
-          <Text2>점검 중...</Text2>
+          <Text2>React Test Sever</Text2>
         </Select>
       </Container>
     </Body>

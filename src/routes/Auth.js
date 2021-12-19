@@ -58,9 +58,7 @@ const Auth = () => {
     let provider;
     if (name === "google") {
       provider = new firebaseInstance.auth.GoogleAuthProvider();
-    } else if (name === "github") {
-      provider = new firebaseInstance.auth.GithubAuthProvider();
-    }
+    } 
     await authService.signInWithPopup(provider);
     history.push("/");
   };
@@ -71,7 +69,6 @@ const Auth = () => {
         <AuthForm />
         <div>
           <Google onClick={onSocialClick} name="google"></Google>
-          <GitHub onClick={onSocialClick} name="github"></GitHub>
         </div>
       </Container>
     </Body>

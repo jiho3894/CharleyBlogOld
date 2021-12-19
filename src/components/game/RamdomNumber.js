@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const Body = styled.div`
   width: 100%;
-  height: 100%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,7 +70,6 @@ const RamdomNumber = () => {
   return (
     <Body>
       <h1>랜덤숫자 맞추기 게임</h1>
-      
       <Container>
         {gameFlag ? (
           <>

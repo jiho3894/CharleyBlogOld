@@ -6,8 +6,7 @@ import Navigation from "components/Navigation";
 import Profile from "routes/Profile";
 import AccountForm from "./AccountForm";
 import RamdomNumber from "./game/RamdomNumber";
-import Blog from "routes/Blog";
-import Upload from "./BlogRoute/Upload";
+import TestSever from "routes/TestSever";
 
 const RouterHandle = ({ refreshUser, userObj, isLoggedIn }) => {
   return (
@@ -21,11 +20,8 @@ const RouterHandle = ({ refreshUser, userObj, isLoggedIn }) => {
           <Route exact path="/Game">
             <RamdomNumber></RamdomNumber>
           </Route>
-          <Route exact path="/StudyBlog">
-            <Blog userObj={userObj} />
-          </Route>
-          <Route exact path="/StudyBlog/Upload">
-            <Upload userObj={userObj} />
+          <Route exact path="/TestServer">
+            <TestSever userObj={userObj} />
           </Route>
           {isLoggedIn ? (
             <Route exact path="/profile" component={Profile}>
