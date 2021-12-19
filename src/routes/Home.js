@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-/*
 import { Link } from "react-router-dom";
-*/
+
 
 
 const Body = styled.body`
@@ -62,9 +61,9 @@ const Home = () => {
           <Text>Web-Synthesizer</Text>
         </Select>
         <Select>
-
+          <Link to="/StudyBlog">
             <img width="400px" height="300px" src={process.env.PUBLIC_URL + '/images/img4.png'} alt=""/>
-
+          </Link>
           <Text2>점검 중...</Text2>
         </Select>
       </Container>
