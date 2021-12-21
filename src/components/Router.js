@@ -21,7 +21,7 @@ const RouterHandle = ({ refreshUser, userObj, isLoggedIn }) => {
             <RamdomNumber></RamdomNumber>
           </Route>
           <Route exact path="/TestServer">
-            <TestSever userObj={userObj} />
+            <TestSever userObj={userObj} text="click"/>
           </Route>
           {isLoggedIn ? (
             <Route exact path="/profile" component={Profile}>

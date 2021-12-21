@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
   font-size: 30px;
@@ -102,11 +102,59 @@ const MileConvert = () => {
   );
 };
 
-const Blog = () => {
+const StyleChange = ({ style, big }) => {
+  return (
+    <button
+      style={{
+        color: style.color,
+      }}
+    >
+      {style.color}
+    </button>
+  );
+};
+
+const SaveChange = ({ text, onClick }) => {
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        color: "red",
+        background: "blue",
+      }}
+    >
+      {text}
+    </button>
+  );
+};
+
+const Test = ({text}) => {
   const [index, setIndex] = useState("x");
   const OptionSelect = (e) => {
     setIndex(e.target.value);
   };
+  const [value, setValue] = useState("hi");
+  const change = () => {
+    setValue("hid");
+  };
+
+  const [counter, setCounter] = useState(0);
+  const [showing, setShowing] = useState(false);
+
+  const Hello = () => {
+    useEffect(() => {
+      console.log("hi");
+      return () => onClick();
+    }, []);
+    return <h1>h2</h1>;
+  };
+  const onClicks = () => setShowing((prev) => !prev);
+  const onChange = (e) => setValue(e.target.value);
+  const onClick = () => setCounter((prev) => prev + 1);
+  const fuck = () => console.log("counter");
+  useEffect(() => {
+    fuck();
+  }, [counter]);
   return (
     <Container>
       <Count />
@@ -121,8 +169,29 @@ const Blog = () => {
       {index === "0" ? <KmConvert /> : null}
       {index === "1" ? <MileConvert /> : null}
       <hr />
+      <StyleChange
+        style={{
+          color: "red",
+          background: "blue",
+        }}
+        hi="what"
+        big={true}
+      />
+      <SaveChange text={value} onClick={change} />
+      <hr/>
+      <input placeholder="text" value={value} onChange={onChange} />
+      <button onClick={onClick}>{text}</button>
+      <h1>{counter}</h1>
+      <div>
+        {showing ? <Hello /> : null}
+        <button onClick={onClicks}>{!showing ? "show" : "hide"}</button>
+      </div>
     </Container>
   );
 };
 
-export default Blog;
+Test.propTypes = {
+  text: PropTypes.string.isRequired,
+};
+
+export default Test;
