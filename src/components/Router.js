@@ -7,6 +7,8 @@ import Profile from "routes/Profile";
 import AccountForm from "./AccountForm";
 import RamdomNumber from "./game/RamdomNumber";
 import TestSever from "routes/TestSever";
+import Coin from "./testServer/coin";
+import Click from "./testServer/click";
 
 const RouterHandle = ({ refreshUser, userObj, isLoggedIn }) => {
   return (
@@ -21,7 +23,13 @@ const RouterHandle = ({ refreshUser, userObj, isLoggedIn }) => {
             <RamdomNumber></RamdomNumber>
           </Route>
           <Route exact path="/TestServer">
-            <TestSever userObj={userObj} text="click"/>
+            <TestSever userObj={userObj}  />
+          </Route>
+          <Route exact path="/TestServer/coin">
+            <Coin></Coin>
+          </Route>
+          <Route exact path="/TestServer/click" >
+            <Click text="click"></Click>
           </Route>
           {isLoggedIn ? (
             <Route exact path="/profile" component={Profile}>
